@@ -10,6 +10,8 @@ from flask_login import (
     logout_user
 )
 
+from flask_dance.contrib.google import google
+
 from apps import db, login_manager
 from apps.authentication import blueprint
 from apps.authentication.forms import LoginForm, CreateAccountForm
@@ -22,6 +24,15 @@ from apps.authentication.util import verify_pass
 def route_default():
     return redirect(url_for('authentication_blueprint.login'))
 
+
+@blueprint.route("/google")
+def login_google():
+    """ Google login """
+    if not google.authorized:
+        return redirect(url_for("google.login"))
+
+    res = google.get("/user")
+    return redirect(url_for('home_blueprint.index'))
 
 # Login & Registration
 

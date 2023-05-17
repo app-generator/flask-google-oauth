@@ -21,6 +21,8 @@ def register_extensions(app):
 
 
 def register_blueprints(app):
+    from apps.authentication.oauth import google_blueprint
+    app.register_blueprint(google_blueprint, url_prefix='/login')
     for module_name in ('authentication', 'home'):
         module = import_module('apps.{}.routes'.format(module_name))
         app.register_blueprint(module.blueprint)
@@ -28,8 +30,9 @@ def register_blueprints(app):
 
 def configure_database(app):
 
-    @app.before_first_request
-    def initialize_database():
+    # @app.before_first_request
+    with app.app_context():
+    # def initialize_database():
         try:
             db.create_all()
         except Exception as e:

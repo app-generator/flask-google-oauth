@@ -18,6 +18,8 @@ class Config(object):
         SECRET_KEY = ''.join(random.choice( string.ascii_lowercase  ) for i in range( 32 ))     
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    GOOGLE_OAUTH_CLIENT_ID = "996394105415-9im2lvsas152k7d1mums4qn0q11gdlni.apps.googleusercontent.com"
+    GOOGLE_OAUTH_CLIENT_SECRET = "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"
 
     DB_ENGINE   = os.getenv('DB_ENGINE'   , None)
     DB_USERNAME = os.getenv('DB_USERNAME' , None)
