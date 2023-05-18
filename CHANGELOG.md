@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.11] 2023-05-18
+### Changes
+
+- Added Google OAuth Flow 
+  - Related DOCS: [Flask Google OAuth](https://docs.appseed.us/technologies/flask/oauth-google/)
+
 ## [1.0.10] 2023-01-03
 ### Changes
 
