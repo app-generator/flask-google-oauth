@@ -31,7 +31,7 @@ def login_google():
     if not google.authorized:
         return redirect(url_for("google.login"))
 
-    res = google.get("/user")
+    res = google.get("/oauth2/v1/userinfo")
     return redirect(url_for('home_blueprint.index'))
 
 # Login & Registration
