@@ -17,7 +17,6 @@ client_secret = Config.GOOGLE_OAUTH_CLIENT_SECRET #os.getenv('GOOGLE_CLIENT_SECR
 google_blueprint = make_google_blueprint(
     client_id=client_id,
     client_secret=client_secret,
-    scope='user',
     storage=SQLAlchemyStorage(
         OAuth,  
         db.session,
